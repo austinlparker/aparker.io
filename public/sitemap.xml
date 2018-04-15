@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://aparker.io/about/aboutme/</loc>
+    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/first/</loc>
+    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/about/</loc>
+    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/</loc>
+    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/</loc>
+    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

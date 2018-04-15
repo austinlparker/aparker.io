@@ -1,0 +1,19 @@
+baseURL = "https://aparker.io/"
+languageCode = "en-us"
+title = "aparker.io"
+theme = "reach"
+
+[params]
+description = "hello world"
+
+[[menu.main]]
+name = "posts"
+weight = 1
+identifier = "posts"
+url = "/posts/"
+
+[[menu.main]]
+name = "about"
+weight = 2
+identifier = "about"
+url = "/about/"
