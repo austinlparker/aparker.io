@@ -1,7 +1,7 @@
 ---
-title: "In Defense of Webextensions"
+title: "In Defense of Browser Plugins"
 date: 2018-04-14T21:42:00-04:00
-anchor: "In Defense of Webextensions"
+anchor: "In Defense of Browser Plugins"
 type: "post"
 ---
 
