@@ -2,6 +2,7 @@ baseURL = "https://aparker.io/"
 languageCode = "en-us"
 title = "aparker.io"
 theme = "reach"
+googleAnalytics = "UA-93794265-1"
 
 [params]
 description = "hello world"
