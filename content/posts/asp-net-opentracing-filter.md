@@ -18,7 +18,7 @@ It's actually pretty straightforward, assuming you know what to Google and can h
 ```csharp
 public class CustomLogger : ActionFilterAttribute
 {
-    public ovveride void OnActionExecuting(ActionExecutingContext filterContext) 
+    public override void OnActionExecuting(ActionExecutingContext filterContext) 
     {
         Debug.WriteLine($"executing controller: {filterContext.RouteData.Values["controller"]}");
         // etc etc...
