@@ -9,6 +9,8 @@ type: "post"
 
 When was the last time you thought about browser plugins?
 
+<!--more-->
+
 Been a minute, hasn't it? We've come a long way from the not-so-great old days of NPAPI and ActiveX. Some might even say that the days of browser plugins being a thing we should care about is long gone, as single page applications and frameworks like [Electron](https://electronjs.org/) make it possible to create native applications running outside the browser using familiar web technologies such as JavaScript, HTML, and CSS.
 
 Browsers are still the single greatest, most portable, and most widely-used application runtime available in 2018. Think about how much of your time, each day, is spent in Chrome or Firefox. A lot, right? It's a double-edged sword, however. While you can access a huge variety of content and applications through the browser, you're missing out on the ability to create tools and utilities that interact with these applications like you could for applications and services running on your computer.

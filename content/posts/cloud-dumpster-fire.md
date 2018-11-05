@@ -7,7 +7,9 @@ type: "post"
 
 ![image](/images/dumpsterfire.gif)
 
-I spent the past couple of days trying to get the Azure Golang SDK and Slack to talk to each other. I'll be writing a couple of posts about it; This is the first!
+I spent the past couple of days trying to get the Azure Golang SDK and Slack to talk to each other. 
+
+<!--more-->
 
 # A Brief Treatise On Bad Documentation
 
