@@ -3,19 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://aparker.io/about/aboutme/</loc>
-    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aparker.io/posts/first/</loc>
-    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aparker.io/about/</loc>
     <lastmod>2018-01-28T21:57:07+01:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/asp-net-opentracing-filter/</loc>
+    <lastmod>2018-10-13T23:02:19+05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/circleci-mono-dotnet/</loc>
+    <lastmod>2018-09-14T12:12:00+05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/cloud-dumpster-fire/</loc>
+    <lastmod>2018-04-20T22:34:22-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/in-defense-of-webextensions/</loc>
+    <lastmod>2018-04-14T21:42:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/rethink-db-load-balancing/</loc>
+    <lastmod>2018-04-14T21:39:57-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/automatic-jira-ticket-creation/</loc>
+    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aparker.io/posts/alexa-standup-bot/</loc>
+    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
   </url>
   
   <url>
@@ -25,7 +49,7 @@
   
   <url>
     <loc>https://aparker.io/posts/</loc>
-    <lastmod>2018-01-28T21:57:07+01:00</lastmod>
+    <lastmod>2018-10-13T23:02:19+05:00</lastmod>
     <priority>0</priority>
   </url>
   

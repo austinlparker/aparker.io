@@ -3,9 +3,14 @@ languageCode = "en-us"
 title = "aparker.io"
 theme = "reach"
 googleAnalytics = "UA-93794265-1"
+enableRobotsTXT = true
+canonifyURLs = true
 
 [params]
-description = "hello world"
+description = "@austinlparker's blog where i talk about software, the cloud, and other topics"
+
+[permalinks]
+post = "/posts/:title/"
 
 [[menu.main]]
 name = "posts"
