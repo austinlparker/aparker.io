@@ -1,25 +1,25 @@
 baseURL = "https://aparker.io/"
 languageCode = "en-us"
-title = "aparker.io"
-theme = "reach"
+title = "austin"
+theme = "hyde"
 googleAnalytics = "UA-93794265-1"
 enableRobotsTXT = true
 canonifyURLs = true
 
 [params]
-description = "@austinlparker's blog where i talk about software, the cloud, and other topics"
+description = "my blog"
 
 [permalinks]
 post = "/posts/:title/"
 
 [[menu.main]]
-name = "posts"
+name = "Posts"
 weight = 1
 identifier = "posts"
 url = "/posts/"
 
 [[menu.main]]
-name = "about"
+name = "About"
 weight = 2
 identifier = "about"
 url = "/about/"
