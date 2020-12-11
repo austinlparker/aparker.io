@@ -53,7 +53,7 @@ The reason that virtual events suck is that we're trying to replicate in-person 
 
 - *Did I Mention Virtual Booths Yet*: I have never interacted with anyone in a Virtual Booth and I never will. This appears to be a common sentiment.
 
-# Why Do virtual Events Suck To Sponsor?
+# Why Do Virtual Events Suck To Sponsor?
 
 Alright, let's flip the script. I'm wearing my business hat now.
 
@@ -81,7 +81,7 @@ Last part - the speaker experience.
 
 Honestly, as a replacement for real events, you can't. You can't just take what worked and slap it online and have it go well or be as fun or useful or valuable or whatever as a real event.
 
-# Ok, smartass, what should we do then?
+## Ok, smartass, what should we do then?
 
 We already have a model for how to create engaging educational programming that people can watch on a screen, it's called television. If you're going to run a purely virtual event, start there. I'll talk about "hybrid" events in the next section, so stay with me for the future - but let's talk about what I think a good virtual event would look like.
 
