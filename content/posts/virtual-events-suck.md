@@ -145,3 +145,5 @@ That said, there's a huge amount of people who will show up online to participat
 
 I miss you all. See you in 2021.
 
+Also I think these events did good this year in no particular order: DevOpsDays Chicago, LeadDev Live, DefCon, GopherCon, GitHub Universe, Deserted Island DevOps.
+
