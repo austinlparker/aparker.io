@@ -1,6 +1,6 @@
 ---
 title: "The Commodification of DevOps"
-date: 2020-12-23T12:00:00-05:00
+date: 2020-12-23T09:00:00-04:00
 anchor: "The Commodification of Devops"
 type: "post"
 ---
