@@ -1,0 +1,26 @@
+---
+title: "Deserted Island TV; Or, A Treatise On Celebrity"
+date: 2021-01-27
+anchor: "Deserted Island TV; Or, A Treatise On Celebrity"
+type: "post"
+---
+
+Consider this an open letter.
+
+<!-- more -->
+
+A lot of people will tell you that a "developer advocate" is a lot of different things. Teacher, tutor, comedian, mediator, marketer, support person, and more. None of those are _wrong_, per se. I don't see it that way, however, as a matter of course. Developer advocates, and indeed, the entire field of developer relations, in my mind is about _celebrity_. Why wouldn't it be? The only metric we have that matters is, indeed, noteworthiness. Your company has engineers. Your company has marketers. What they don't have, though, are celebrities. They don't have _stars_, for the most part. If the modern business is a story, and the art of doing business akin to story-telling, then it is not enough to simply Do, we must Perform. Performance, as it is, requires heroes, villains, and journeys. It requires Characters, not just faceless documentation pages and polite responses in Slack.
+
+This, ultimately, is our job. We might not always be graded on it, it might not be measured directly, but it impacts us all in different ways.
+
+Really, you can extend this metaphor even further -- DevOps is an aspirational lifestyle, anyway, right? Distilling the culture leads you to the logical conclusion that the only thing that matters are people, and interactions between them, and making those interactions more equitable and just. So, on some level, we're all just brand ambassadors who preach whatever this quarter's orthodoxy is. I don't want this to sound dismissive; if it was, I'd be dismissing myself. Rather, I suggest that we embrace this rather than turn our head from it. Our job going forward is to figure out how to bring people together, but in a persistent and virtual way. We need to create a community for, and by, everybody.
+
+I recently approached a few of my colleagues with a concept -- what if we worked together, rather than individually, on this? If DevOps is a lifestyle brand, then why not centralize our efforts? In more grandiose terms, why not support each other by building a single platform and brand around _all_ of us rather than _one_ of us? There's a lot that goes into creating, promoting, and audience building -- both in terms of management of platforms (social, twitch, web, etc.) and in terms of production (visual fx, audio, editing, production, etc.). There's also a burden on the audience itself - wouldn't it make more sense to have a single home for content discovery and community engagement, rather than twelve different discords, slacks, and so forth?
+
+This is the basic idea behind Deserted Island TV. Why the name? Poetically, because I think the past year really has demonstrated how we're all on our own deserted islands -- both in the sense that we're geographically isolated from each other due to the pandemic, but that separation also has forced us to deepen our comfort with our locality. Of the good that's happened in the past year, much of it has been due to people tending their own garden. We've demonstrated resiliency through survival, if nothing else. Prosaically, well, Deserted Island DevOps is a decent enough hook to hang your hat on if you're going to try and branch out into a larger 'brand'...
+
+More concretely, the concept is this - Deserted Island TV is an open, co-operative network of creators with a single platform for community engagement and broadcasting. One Discord, one Twitch stream. Content should be organized as a 'show' - something with a defined beginning and end, preferably something that takes place in an hour or less. Ideally, shows would run on a regular cadence - weekly, biweekly, monthly, etc. Outside of that, the sky's pretty much the limit in my mind. Any proceeds -- sponsorships, swag, whatever -- would be pooled and shared; first to improve our own work (visual design, production, etc.), second to be disbursed as the group decides (preferably to a charity, I think it'd be cool if this turned into a non-profit). 
+
+Why a single channel? Why not do a team? Quite frankly, to centralize our audience. Ten thousand people following one Twitch channel is a lot better than those people following fourteen separate ones. More importantly, this gives us the ability to highlight people who _don't_ have a following. By centralizing viewership in a single place, it introduces our collective audience to people they might never have gotten the chance to know otherwise. Same concept applies to the Discord - yeah, Discord allows you to join multiple servers more easily than Slack, but having a single uber-server makes it easier for people to meet people. It also allows us to pool moderation duties and ensure a more consistent set of standards and practices.
+
+Anyway, I'm just going to throw this out into the world and see what happens. If you'd like to join the Discord and tell me how much you love the idea, [here's the link](https://discord.gg/CPM5Jcg). If you'd like to be a part of it, feel free to DM me.
