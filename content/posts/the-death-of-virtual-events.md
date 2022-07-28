@@ -27,11 +27,11 @@ I’ve spent a fair amount of my career around developer events, both in-person 
 
 ![image](/images/eventsmodel.png)
 
-Virtual events didn’t change this model, but my biggest takeaway from two years of strictly virtual events is that people absolutely need to see each other in-person. There's a myriad of reasons for this, but I'd like to call out two that I find most compelling.
+Virtual events didn’t change this model, but my biggest takeaway from two years of strictly virtual events is that **people absolutely need to see each other in-person**. There's a myriad of reasons for this, but I'd like to call out two that I find most compelling.
 
-1. People aren't really good about talking about failure online. Be it over Zoom, in a chat room, anonymously, whatever -- it's something I've noticed time and time again. I believe this is due to a host of social and cultural reasons -- the lack of body language to help nuance discussions, a fear of being recorded, the flat affect that digitized voice tends to lend itself to, etc. I’d suggest that it comes down to a difficulty in being vulnerable over digital mediums. This is a problem for events, though, because a huge part (perhaps even the primary raison de etre) of an event is the ability to _be_ vulnerable with people inside or outside your team. This is what leads to learning and insight -- being able to share, listen, and work that connective function of your brain meats. Virtual events simply haven't been able to replicate the hallway track, and this is a huge reason why. Worryingly, if you accept my presupposition here, they _never will_.
+1. People aren't really good about talking about failure online. Be it over Zoom, in a chat room, anonymously, whatever -- it's something I've noticed time and time again. I believe this is due to a host of social and cultural reasons -- the lack of body language to help nuance discussions, a fear of being recorded, the flat affect that digitized voice tends to lend itself to, etc. I’d suggest that it comes down to a difficulty in being vulnerable over digital mediums. This is a problem for events, though, **because a huge part (perhaps even the primary raison de etre) of an event is the ability to _be_ vulnerable with people inside or outside your team**. This is what leads to learning and insight -- being able to share, listen, and work that connective function of your brain meats. Virtual events simply haven't been able to replicate the hallway track, and this is a huge reason why. Worryingly, if you accept my presupposition here, they _never will_.
 
-2. Attentiveness. What I mean by this isn't "people pay attention to the talks" (they don't do that in-person _or_ online), what I mean is that you are _present_ when you're in-person. This in-person presence benefits the attendee in terms of mental flexibility and thinking. (I wrote about this here -- the idea of a constructed space, where a change in scenery really does help change your mindset and open you up to new possibilities). Additionally, the presence of executive or C-level attendees allows for increased efficiency on the part of media or analysts, allowing them one-on-one time with key decision makers. The presence of sponsors allows for in-person testing of new marketing strategies and ideas. Crucially, this attentiveness is _not_ present for virtual events. Indeed, we've seen a recognition of this as events shrink their content programs down to allow for time-shifting and bite-sized videos. It's a known quantity that virtual event talks are pre-recorded in most cases. This can signal to attendees that there's a lack of attentiveness on the speaker or organizers part! The sad irony here is that pre-recorded talks can require a greater amount of effort than live ones to create, record, and produce. We’re left with a curious dichotomy, where virtual events wind up taking a lot of effort to put together but are undervalued in respect to that effort.
+2. Attentiveness. What I mean by this isn't "people pay attention to the talks" (they don't do that in-person _or_ online), what I mean is that you are _present_ when you're in-person. This in-person presence benefits the attendee in terms of mental flexibility and thinking. (I wrote about this here -- the idea of a constructed space, where a change in scenery really does help change your mindset and open you up to new possibilities). Additionally, the presence of executive or C-level attendees allows for increased efficiency on the part of media or analysts, allowing them one-on-one time with key decision makers. The presence of sponsors allows for in-person testing of new marketing strategies and ideas. Crucially, this attentiveness is _not_ present for virtual events. Indeed, we've seen a recognition of this as events shrink their content programs down to allow for time-shifting and bite-sized videos. It's a known quantity that virtual event talks are pre-recorded in most cases. This can signal to attendees that there's a lack of attentiveness on the speaker or organizers part! The sad irony here is that pre-recorded talks can require a greater amount of effort than live ones to create, record, and produce. **We’re left with a curious dichotomy, where virtual events wind up taking a lot of effort to put together but are undervalued in respect to that effort.**
 
 ## The Problems Of Coming Together
 
@@ -47,7 +47,7 @@ There are tradeoffs to take into account for any event, and part of those tradeo
 
 The problem is, we have to dress up these events in the guise of ‘continuing education’ and give them a veneer of academic rigor and respectability, just so we can go hang out in the hallway and kvetch. The talks are useful ways for people to test ideas out, or to learn something new, but as I’ll talk about in the next section, flying across the country to talk to a room of people is probably the least efficient and effective way at communicating ideas in 2022.
 
-The problem with events is that they exist for you to be marketed to by sponsors, and it’s really hard to do that virtually.
+**The problem with events is that they exist for you to be marketed to by sponsors**, and it’s really hard to do that virtually.
 
 ## The Different Perspective
 
@@ -69,7 +69,16 @@ Let's talk about the intractable parts of our model now, the attendees and speak
 
 We do have models for events designed for these groups. DevOpsDays events are specifically designed around this interplay, as well as the general idea of 'unconferences' where attendees create ad-hoc groups around topics selected that day. 
 
-To be somewhat blase, we work under the assumption that if we get a lot of smart people together, then something educational will come out of it.I think this is a bit too reductive and misses the other axes of interaction that developer conferences provide. These groups are somewhat transient identifiers... Within attendees, different levels of experience will lead to ad-hoc promotions as groups coalesce and drift apart. Within speakers as well, peers and new entrants will commingle to learn from each other, swap war stories, and network. Thus, solving for the needs of the attendees will also in many ways solve for the needs of the speakers. If we start from the position that events are "a paid vacation from your day job", then what should we optimize for?
+To be somewhat blase, we work under the assumption that if we get a lot of smart
+people together, then something educational will come out of it. I think this is
+a bit too reductive and misses the other axes of interaction that developer
+conferences provide. These groups are somewhat transient identifiers... Within
+attendees, different levels of experience will lead to ad-hoc promotions as
+groups coalesce and drift apart. Within speakers as well, peers and new entrants
+will commingle to learn from each other, swap war stories, and network. Thus,
+solving for the needs of the attendees will also in many ways solve for the
+needs of the speakers. If we start from the position that events are "a paid
+vacation from your day job", then what should we optimize for?
 
 - Locales and venues that assist in creating 'decisive moments'. 
 - The ability to disconnect fully (or as fully as possible) from standard roles and responsibilities, to immerse oneself in the event.
