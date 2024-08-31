@@ -12,6 +12,11 @@ import { LinksFunction } from "@remix-run/node";
 import styles from "./tailwind.css?url";
 import { Link } from "./components/link";
 
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
+
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   { rel: "stylesheet", href: "https://unpkg.com/@sakun/system.css" },

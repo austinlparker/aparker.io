@@ -33,7 +33,9 @@ export default {
       950: "#252e46",
       gray: "#252525",
     },
-    extend: {},
+    extend: {
+      filter: ["grayscale"],
+    },
   },
   plugins: [],
 } satisfies Config;

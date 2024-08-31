@@ -16,4 +16,4 @@ It is currently a ✨ work in progress ✨.
 - [ ] Add tagging/filtering support (may require lexicon rewrite)
 - [ ] Maybe factor out the theme/css so that people could use this as a template?
 - [ ] Add OpenTelemetry support (tracing, metrics, events)
-- [ ] world peace
+- [ ] world peace?

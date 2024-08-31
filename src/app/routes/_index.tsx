@@ -6,7 +6,17 @@ import { useLoaderData } from "@remix-run/react";
 import { WhtwndBlogEntryView } from "../../types";
 import { AppBskyActorDefs } from "@atproto/api";
 import { slugify } from "../../utils/slugify";
+import { Sidebar } from "../components/sidebar";
 import Markdown from "react-markdown";
+
+type LoaderData = {
+  posts: WhtwndBlogEntryView[];
+  profile: {
+    avatar?: string;
+    displayName?: string;
+    [key: string]: any; // This allows for other properties
+  };
+};
 
 export const loader = async () => {
   const posts = await getPosts(undefined);
@@ -15,16 +25,11 @@ export const loader = async () => {
   const postsFiltered = posts.filter((p) => !p.content?.startsWith("NOT_LIVE"));
 
   const postsShortened = postsFiltered.map((p) => {
-    // Create the mapping for each post
-    const titleSlug = slugify(p.title);
-    setTitleToRkeyMapping(titleSlug, p.rkey);
-
-    // Shorten the content
     p.content = p.content?.slice(0, 300);
     return p;
   });
 
-  return json({ posts: postsShortened, profile });
+  return json<LoaderData>({ posts: postsShortened, profile });
 };
 
 export const meta: MetaFunction = () => {
@@ -46,19 +51,7 @@ export default function Index() {
   return (
     <div className="container mx-auto">
       <div className="flex flex-col md:flex-row gap-4 pt-4 md:pt-8">
-        <div className="standard-dialog md:w-1/3 order-last md:order-first">
-          {profile ? (
-            <img
-              className="rounded-full w-32 h-32"
-              src={profile.avatar}
-              alt="austin's avatar"
-            />
-          ) : (
-            <div className="w-32 h-32 bg-gray-300 rounded-full"></div>
-          )}
-          <h1 className="dialog-text">aparker.io</h1>
-          <p className="dialog-text">welcome!</p>
-        </div>
+        <Sidebar profile={profile} currentPage="home" />
         <div className="flex flex-col gap-4 window md:w-2/3 order-first md:order-last">
           <div className="title-bar">
             <button aria-label="Close" className="close"></button>
