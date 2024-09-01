@@ -51,7 +51,7 @@ export default function Index() {
   return (
     <div className="container mx-auto">
       <div className="flex flex-col md:flex-row gap-4 pt-4 md:pt-8">
-        <Sidebar profile={profile} currentPage="home" />
+        <Sidebar profile={profile} />
         <div className="flex flex-col gap-4 window md:w-2/3 order-first md:order-last">
           <div className="title-bar">
             <button aria-label="Close" className="close"></button>

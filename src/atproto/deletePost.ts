@@ -1,8 +1,7 @@
 import { AtpAgent } from "@atproto/api";
 import { WhtwndBlogEntryRecord } from "../types";
-import { generateRkey } from "src/utils/rkey";
 
-export const addPost = async (post: WhtwndBlogEntryRecord) => {
+export const deletePost = async (rkey: string) => {
   const repo = process.env.ATP_IDENTIFIER!;
   const ATP_SERVICE = process.env.ATP_SERVICE!;
   const atpAgent = new AtpAgent({
@@ -12,18 +11,15 @@ export const addPost = async (post: WhtwndBlogEntryRecord) => {
     identifier: process.env.ATP_IDENTIFIER!,
     password: process.env.ATP_PASSWORD!,
   });
-  const rkey = generateRkey();
-  const res = await atpAgent.com.atproto.repo.createRecord({
+  const res = await atpAgent.com.atproto.repo.deleteRecord({
     repo: repo,
     collection: "com.whtwnd.blog.entry",
-    record: post,
     rkey: rkey,
-    validate: false,
   });
 
   if (!res.success) {
-    throw new Error("failed to add post");
+    throw new Error("failed to delete post");
   }
 
-  return rkey;
+  return res.success;
 };

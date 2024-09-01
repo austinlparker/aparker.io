@@ -2,11 +2,14 @@ import React from "react";
 import { useLoaderData } from "@remix-run/react";
 import Markdown, { Components } from "react-markdown";
 import { WhtwndBlogEntryView } from "../../types";
-import { getPost, getProfile } from "../../atproto";
+import { getPost, getProfile, getPosts } from "../../atproto";
 import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { Link } from "../components/link";
+import { NavigationDialog } from "../components/navigationDialog";
 import { Sidebar } from "../components/sidebar";
 import { AppBskyActorDefs } from "@atproto/api";
+import { Link } from "../components/link";
+import { getRkeyFromTitleSlug, getTitleSlugFromRkey } from "src/redis/redis";
+import { slugify } from "src/utils/slugify";
 
 type LoaderData = {
   post: WhtwndBlogEntryView;
@@ -19,9 +22,41 @@ type LoaderData = {
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const { titleSlug } = params;
+  const rkey = await getRkeyFromTitleSlug(titleSlug!);
+
+  if (!rkey) {
+    throw new Response("Not Found", { status: 404 });
+  }
+
   const post = await getPost(titleSlug!);
   const profile = await getProfile();
-  return json<LoaderData>({ post, profile });
+
+  // Fetch all posts to determine previous and next
+  const allPosts = await getPosts(undefined);
+  const sortedPosts = allPosts.sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+  const currentIndex = sortedPosts.findIndex((p) => p.rkey === rkey);
+
+  let previousPost, nextPost;
+
+  if (currentIndex < sortedPosts.length - 1) {
+    const previousRkey = sortedPosts[currentIndex + 1].rkey;
+    const previousTitleSlug =
+      (await getTitleSlugFromRkey(previousRkey)) ||
+      slugify(sortedPosts[currentIndex + 1].title);
+    previousPost = `/posts/${previousTitleSlug}`;
+  }
+
+  if (currentIndex > 0) {
+    const nextRkey = sortedPosts[currentIndex - 1].rkey;
+    const nextTitleSlug =
+      (await getTitleSlugFromRkey(nextRkey)) ||
+      slugify(sortedPosts[currentIndex - 1].title);
+    nextPost = `/posts/${nextTitleSlug}`;
+  }
+
+  return json({ post, profile, previousPost, nextPost });
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -50,9 +85,11 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   ];
 };
 export default function Posts() {
-  const { post, profile } = useLoaderData<{
+  const { post, profile, previousPost, nextPost } = useLoaderData<{
     post: WhtwndBlogEntryView;
     profile: AppBskyActorDefs.ProfileViewDetailed;
+    previousPost?: string;
+    nextPost?: string;
   }>();
 
   if (!post) {
@@ -67,20 +104,25 @@ export default function Posts() {
 
   return (
     <div className="container mx-auto">
-      <div className="flex flex-col md:flex-row gap-4 pt-4 md:pt-8">
-        <Sidebar profile={profile} currentPage="post" postDate={postDate} />
-        <div className="flex flex-col gap-4 window md:w-2/3 order-first md:order-last">
-          <div className="title-bar">
-            <button aria-label="Close" className="close"></button>
-            <h1 className="title">{post.title}</h1>
-            <button aria-label="Resize" className="resize"></button>
+      <div className="flex flex-col md:flex-row gap-4 pt-4 md:pt-8 items-start">
+        <Sidebar profile={profile} />
+        <div className="flex flex-col gap-4 md:w-2/3 order-first md:order-last">
+          <div className="window">
+            <div className="title-bar">
+              <button aria-label="Close" className="close"></button>
+              <h1 className="title">{post.title}</h1>
+              <button aria-label="Resize" className="resize"></button>
+            </div>
+            <div className="details-bar">
+              <span>{postDate}</span>
+            </div>
+            <div className="window-pane">
+              <Markdown components={markdownComponents} className="break-words">
+                {post.content}
+              </Markdown>
+            </div>
           </div>
-          <div className="separator"></div>
-          <div className="window-pane">
-            <Markdown components={markdownComponents} className="break-words">
-              {post.content}
-            </Markdown>
-          </div>
+          <NavigationDialog previousPost={previousPost} nextPost={nextPost} />
         </div>
       </div>
     </div>
@@ -101,9 +143,7 @@ function Error() {
             className="rounded-md"
           />
         </div>
-        <Link href="/">
-          <button className="btn">Back to home</button>
-        </Link>
+        <Link href="/">Return home</Link>
       </div>
     </div>
   );

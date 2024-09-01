@@ -45,7 +45,7 @@ const socialLinks: SocialLink[] = [
 
 export function Sidebar({ profile }: SidebarProps) {
   return (
-    <div className="standard-dialog md:w-1/3 order-last md:order-first flex flex-col items-center">
+    <div className="standard-dialog md:w-1/3 order-last md:order-first flex flex-col items-center  md:sticky md:top-4">
       <div className="flex items-center justify-center bg-gray-200 rounded-lg p-2 mb-4">
         <div className="relative w-16 h-16 mr-4">
           {profile.avatar ? (
