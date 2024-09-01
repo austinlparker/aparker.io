@@ -14,6 +14,7 @@ import { Link } from "./components/link";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { ErrorDialog } from "./components/error";
 
 config.autoAddCss = false;
 
@@ -59,18 +60,5 @@ export default function App() {
 export function ErrorBoundary() {
   const error = useRouteError();
   console.error(error);
-  return (
-    <div className="container mZx-auto pt-10 md:pt-20 pb-20">
-      <h1 className="text-5xl md:text-6xl font-bold text-center">
-        Uh...something went wrong.
-      </h1>
-      <div className="p-10">
-        <img
-          src="/monkey.jpg"
-          alt="Monkey muppet meme image"
-          className="rounded-md"
-        />
-      </div>
-    </div>
-  );
+  return <ErrorDialog />;
 }

@@ -10,6 +10,7 @@ import { AppBskyActorDefs } from "@atproto/api";
 import { Link } from "../components/link";
 import { getRkeyFromTitleSlug, getTitleSlugFromRkey } from "src/redis/redis";
 import { slugify } from "src/utils/slugify";
+import { ErrorDialog } from "../components/error";
 
 type LoaderData = {
   post: WhtwndBlogEntryView;
@@ -130,23 +131,7 @@ export default function Posts() {
 }
 
 function Error() {
-  return (
-    <div className="container mx-auto pt-10 md:pt-20 pb-20">
-      <div className="standard-dialog">
-        <h1 className="dialog-text text-2xl font-bold">
-          Uh...something went wrong.
-        </h1>
-        <div className="p-4">
-          <img
-            src="/monkey.jpg"
-            alt="Monkey muppet meme image"
-            className="rounded-md"
-          />
-        </div>
-        <Link href="/">Return home</Link>
-      </div>
-    </div>
-  );
+  return <ErrorDialog />;
 }
 
 const markdownComponents: Partial<Components> = {
