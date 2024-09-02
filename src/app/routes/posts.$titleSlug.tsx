@@ -75,14 +75,10 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
       name: "og:description",
       content: `${data?.post.content?.split(" ").slice(0, 100).join(" ")}...`,
     },
-    ...(data?.post.banner && data?.post.banner !== ""
-      ? [
-          {
-            name: "og:image",
-            content: `${data?.post.banner}`,
-          },
-        ]
-      : []),
+    {
+      name: "og:image",
+      content: "/og/og-image.jpeg",
+    },
   ];
 };
 export default function Posts() {
@@ -104,11 +100,14 @@ export default function Posts() {
   });
 
   return (
-    <div className="container mx-auto">
-      <div className="flex flex-col md:flex-row gap-4 pt-4 md:pt-8 items-start">
-        <Sidebar profile={profile} />
-        <div className="flex flex-col gap-4 md:w-2/3 order-first md:order-last">
-          <div className="window">
+    <div className="container mx-auto h-screen flex flex-col">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 md:pt-8 overflow-hidden">
+        <div className="md:col-span-1 flex flex-col justify-between">
+          <Sidebar profile={profile} />
+          <NavigationDialog previousPost={previousPost} nextPost={nextPost} />
+        </div>
+        <div className="md:col-span-2 flex flex-col overflow-hidden">
+          <div className="window flex-1 flex flex-col">
             <div className="title-bar">
               <button aria-label="Close" className="close"></button>
               <h1 className="title">{post.title}</h1>
@@ -117,13 +116,12 @@ export default function Posts() {
             <div className="details-bar">
               <span>{postDate}</span>
             </div>
-            <div className="window-pane">
+            <div className="window-pane flex-1 overflow-y-auto">
               <Markdown components={markdownComponents} className="break-words">
                 {post.content}
               </Markdown>
             </div>
           </div>
-          <NavigationDialog previousPost={previousPost} nextPost={nextPost} />
         </div>
       </div>
     </div>

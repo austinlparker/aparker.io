@@ -7,7 +7,13 @@ import {
 } from "@remix-run/react";
 import { json, redirect } from "@remix-run/node";
 import type { ActionFunction, LoaderFunction } from "@remix-run/node";
-import { addPost, getPosts, deletePost } from "../../atproto";
+import {
+  addPost,
+  getPosts,
+  deletePost,
+  getBlob,
+  listBlobs,
+} from "../../atproto";
 import type { WhtwndBlogEntryRecord, WhtwndBlogEntryView } from "../../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -20,7 +26,8 @@ import { slugify } from "src/utils/slugify";
 
 export const loader: LoaderFunction = async () => {
   const posts = await getPosts(undefined);
-  return json({ posts });
+  const blobs = await listBlobs();
+  return json({ posts, blobs });
 };
 
 export const action: ActionFunction = async ({ request }) => {
@@ -78,7 +85,10 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export default function AdminPage() {
-  const { posts } = useLoaderData<{ posts: WhtwndBlogEntryView[] }>();
+  const { posts, blobs } = useLoaderData<{
+    posts: WhtwndBlogEntryView[];
+    blobs: string[];
+  }>();
   const actionData = useActionData<typeof action>();
   const navigation = useNavigation();
   const [title, setTitle] = useState("");
@@ -158,6 +168,21 @@ export default function AdminPage() {
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
                   </Form>
+                </li>
+              ))}
+            </ul>
+            <h2 className="text-2xl font-bold mt-8 mb-4">Available Blobs</h2>
+            <ul className="space-y-4">
+              {blobs.map((blob) => (
+                <li key={blob} className="flex justify-between items-center">
+                  <a
+                    href={`/images/${blob}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:text-blue-700"
+                  >
+                    View Image
+                  </a>
                 </li>
               ))}
             </ul>

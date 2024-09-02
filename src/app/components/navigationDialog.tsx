@@ -19,7 +19,7 @@ export function NavigationDialog({
   const navigate = useNavigate();
 
   return (
-    <div className="modal-dialog outer-border w-full">
+    <div className="modal-dialog outer-border w-full mb-5">
       <div className="inner-border center">
         <div className="modal-contents flex justify-between items-center">
           <button
