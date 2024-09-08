@@ -231,17 +231,15 @@ const markdownComponents: Partial<Components> = {
   ol: ({ children }) => <ol className="list-decimal pl-4">{children}</ol>,
   li: ({ children }) => <li className="py-1">{children}</li>,
   blockquote: ({ children }) => (
-    <blockquote className="border-l-4 border-300 my-3 pl-4 py-1">
+    <blockquote className="border-l-4 border-gray my-3 pl-4 py-1">
       {children}
     </blockquote>
   ),
   code: ({ children }) => (
-    <code className="bg-gray p-1 rounded-md">{children}</code>
+    <code className="bg-50 p-1 rounded-md">{children}</code>
   ),
   pre: ({ children }) => (
-    <pre className="bg-gray p-2 rounded-md overflow-x-auto my-4">
-      {children}
-    </pre>
+    <pre className="bg-50 p-2 rounded-md overflow-x-auto my-4">{children}</pre>
   ),
   img: ({ src, alt }) => (
     <div className="flex justify-center p-6">
