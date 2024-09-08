@@ -6,20 +6,21 @@ import { getPost, getProfile, getPosts } from "../../atproto";
 import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { NavigationDialog } from "../components/navigationDialog";
 import { Sidebar } from "../components/sidebar";
-import { AppBskyActorDefs } from "@atproto/api";
+import { AppBskyActorDefs, AppBskyFeedDefs } from "@atproto/api";
 import { Link } from "../components/link";
 import { getRkeyFromTitleSlug, getTitleSlugFromRkey } from "src/redis/redis";
 import { slugify } from "src/utils/slugify";
 import { ErrorDialog } from "../components/error";
-
-type LoaderData = {
-  post: WhtwndBlogEntryView;
-  profile: {
-    avatar?: string;
-    displayName?: string;
-    [key: string]: any;
-  };
-};
+import { getCommentThread } from "src/atproto/getCommentThread";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCalendar,
+  faHeart,
+  faRetweet,
+  faComment,
+} from "@fortawesome/free-solid-svg-icons";
+import { CommentDialog } from "../components/commentDialog";
+import { atUriToHttps } from "../../utils/uriConverter";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const { titleSlug } = params;
@@ -31,6 +32,19 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 
   const post = await getPost(titleSlug!);
   const profile = await getProfile();
+  let commentThread: AppBskyFeedDefs.ThreadViewPost | null = null;
+  let likes = 0;
+  let reshares = 0;
+  let commentUri = "";
+
+  try {
+    commentThread = await getCommentThread(rkey);
+    likes = commentThread.post.likeCount || 0;
+    reshares = commentThread.post.repostCount || 0;
+    commentUri = atUriToHttps(commentThread.post.uri);
+  } catch (error) {
+    console.error("Error fetching comment thread:", error);
+  }
 
   // Fetch all posts to determine previous and next
   const allPosts = await getPosts(undefined);
@@ -57,7 +71,16 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     nextPost = `/posts/${nextTitleSlug}`;
   }
 
-  return json({ post, profile, previousPost, nextPost });
+  return json({
+    post,
+    profile,
+    previousPost,
+    nextPost,
+    likes,
+    reshares,
+    commentThread,
+    commentUri,
+  });
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -82,11 +105,24 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   ];
 };
 export default function Posts() {
-  const { post, profile, previousPost, nextPost } = useLoaderData<{
+  const {
+    post,
+    profile,
+    previousPost,
+    nextPost,
+    likes,
+    reshares,
+    commentThread,
+    commentUri,
+  } = useLoaderData<{
     post: WhtwndBlogEntryView;
     profile: AppBskyActorDefs.ProfileViewDetailed;
     previousPost?: string;
     nextPost?: string;
+    likes: number;
+    reshares: number;
+    commentThread: AppBskyFeedDefs.ThreadViewPost | null;
+    commentUri: string;
   }>();
 
   if (!post) {
@@ -104,6 +140,9 @@ export default function Posts() {
       <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 md:pt-8 overflow-hidden">
         <div className="md:col-span-1 flex flex-col justify-between">
           <Sidebar profile={profile} />
+          {commentThread && commentThread.replies && (
+            <CommentDialog comments={commentThread.replies} />
+          )}
           <NavigationDialog previousPost={previousPost} nextPost={nextPost} />
         </div>
         <div className="md:col-span-2 flex flex-col overflow-hidden">
@@ -113,8 +152,40 @@ export default function Posts() {
               <h1 className="title">{post.title}</h1>
               <button aria-label="Resize" className="resize"></button>
             </div>
-            <div className="details-bar">
-              <span>{postDate}</span>
+            <div className="details-bar flex justify-between items-center px-4 py-2 bg-gray-100 text-sm">
+              <span className="flex items-center">
+                <FontAwesomeIcon
+                  icon={faCalendar}
+                  className="mr-2 text-gray-600"
+                />
+                {postDate}
+              </span>
+              <div className="flex space-x-4">
+                <span className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    className="mr-2 text-red-500"
+                  />
+                  {likes}
+                </span>
+                <span className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faRetweet}
+                    className="mr-2 text-green-500"
+                  />
+                  {reshares}
+                </span>
+                <span className="flex items-center">
+                  <a
+                    href={commentUri}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faComment} className="mr-2" />
+                    {commentThread?.replies?.length || 0}
+                  </a>
+                </span>
+              </div>
             </div>
             <div className="window-pane flex-1 overflow-y-auto">
               <Markdown components={markdownComponents} className="break-words">

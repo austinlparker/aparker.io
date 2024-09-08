@@ -28,3 +28,15 @@ export interface BskyProfileView {
   description: string;
   banner: string;
 }
+
+export interface PostImage {
+  $type: "com.aparker.blog.image";
+  image: {
+    $type: "blob";
+    ref: {
+      $link: string;
+    };
+    mimeType: string;
+    size: number;
+  };
+}
