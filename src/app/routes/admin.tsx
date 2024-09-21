@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { authenticator } from "../services/session.server";
 import {
   Form,
   useActionData,
@@ -27,13 +28,21 @@ import { slugify } from "src/utils/slugify";
 const ATP_SERVICE = process.env.ATP_SERVICE!;
 const ATP_IDENTIFIER = process.env.ATP_DID!;
 
-export const loader: LoaderFunction = async () => {
+export const loader: LoaderFunction = async ({ request }) => {
+  await authenticator.isAuthenticated(request, {
+    failureRedirect: "/login",
+  });
+
   const posts = await getPosts(undefined);
   const blobs = await listBlobs();
   return json({ posts, blobs, ATP_SERVICE, ATP_IDENTIFIER });
 };
 
 export const action: ActionFunction = async ({ request }) => {
+  await authenticator.isAuthenticated(request, {
+    failureRedirect: "/login",
+  });
+
   const formData = await request.formData();
   const action = formData.get("action");
 
@@ -54,7 +63,7 @@ export const action: ActionFunction = async ({ request }) => {
       console.error("Error uploading image:", error);
       return json(
         { error: "Failed to upload image. Please try again." },
-        { status: 500 }
+        { status: 500 },
       );
     }
   }
@@ -68,7 +77,7 @@ export const action: ActionFunction = async ({ request }) => {
     if (!title || !content || !createdAt) {
       return json(
         { error: "Title, content, and creation date are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -87,7 +96,7 @@ export const action: ActionFunction = async ({ request }) => {
       console.error("Error adding post:", error);
       return json(
         { error: "Failed to add post. Please try again." },
-        { status: 500 }
+        { status: 500 },
       );
     }
   } else if (action === "delete") {
@@ -106,7 +115,7 @@ export const action: ActionFunction = async ({ request }) => {
       console.error("Error deleting post:", error);
       return json(
         { error: "Failed to delete post. Please try again." },
-        { status: 500 }
+        { status: 500 },
       );
     }
   }

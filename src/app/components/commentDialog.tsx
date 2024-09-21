@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { AppBskyFeedDefs } from "@atproto/api";
+import { atUriToHttps } from "src/utils/uriConverter";
 
 interface CommentDialogProps {
   comments: (
@@ -13,7 +14,7 @@ interface CommentDialogProps {
 
 function CommentItem({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }) {
   return (
-    <li className="py-1 px-1">
+    <li className="py-1 px-0">
       <div className="flex items-start space-x-1">
         <img
           src={comment.post.author.avatar || "/default-avatar.png"}
@@ -25,16 +26,16 @@ function CommentItem({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }) {
         <div className="flex-1 text-xs">
           <div className="flex justify-between items-start">
             <div>
-              <span className="font-semibold">
-                {comment.post.author.displayName || comment.post.author.handle}
-              </span>
+              <a href={atUriToHttps(comment.post.uri)}>
+                <span className="font-semibold">
+                  {comment.post.author.displayName ||
+                    comment.post.author.handle}
+                </span>
+              </a>
               <span className="text-gray-500 ml-1">
                 @{comment.post.author.handle}
               </span>
             </div>
-            <span className="text-xxs text-gray-500">
-              {new Date(comment.post.indexedAt).toLocaleDateString()}
-            </span>
           </div>
           <p className="mt-0.5">{comment.post.record.text}</p>
           {comment.replies && comment.replies.length > 0 && (
@@ -54,13 +55,11 @@ function CommentItem({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }) {
 
 export function CommentDialog({ comments }: CommentDialogProps) {
   return (
-    <div className="window">
+    <div className="window !m-0">
       <div className="title-bar">
-        <button aria-label="Close" className="close"></button>
-        <h2 className="title flex items-center">Comments</h2>
-        <button aria-label="Resize" className="resize"></button>
+        <h1 className="title">Comments</h1>
       </div>
-      <div className="window-pane overflow-y-auto max-h-[60vh] p-1">
+      <div className="window-pane max-h-[50vh]">
         {comments.length === 0 ? (
           <p className="text-gray-500 text-center">No comments yet.</p>
         ) : (

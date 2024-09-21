@@ -56,14 +56,14 @@ export default function Index() {
           <Sidebar profile={profile} />
         </div>
         <div className="md:col-span-2 flex flex-col overflow-hidden">
-          <div className="window flex-1 flex flex-col">
+          <div className="window flex-1 flex flex-col !m-0 !mb-1">
             <div className="title-bar">
               <button aria-label="Close" className="close"></button>
               <h1 className="title">blog posts</h1>
               <button aria-label="Resize" className="resize"></button>
             </div>
             <div className="separator"></div>
-            <div className="window-pane flex-1 overflow-y-auto">
+            <div className="window-pane flex-1">
               <ul className="list-none">
                 {posts
                   ?.sort(

@@ -4,10 +4,26 @@ import { WhtwndBlogEntryView } from "../types";
 import { getPosts } from "../atproto";
 import { slugify } from "../utils/slugify";
 
-export const redisClient = new Redis({
-  port: 6379,
-  host: "127.0.0.1",
-});
+let redisClient: Redis;
+
+if (process.env.IS_FLY === "true") {
+  // Upstash Redis connection for Fly.io environment
+  redisClient = new Redis({
+    host: "fly-aparker-io-redis.upstash.io",
+    port: 6379,
+    username: "default",
+    password: process.env.UPSTASH_REDIS_PASSWORD,
+    family: 6,
+  });
+} else {
+  // Local Redis connection
+  redisClient = new Redis({
+    port: 6379,
+    host: "127.0.0.1",
+  });
+}
+
+export { redisClient };
 
 export const getCachedPosts = async () => {
   const res = await redisClient.get("posts");
@@ -42,14 +58,14 @@ export const getCachedProfile = async () => {
 };
 
 export const setCachedProfile = async (
-  profile: AppBskyActorDefs.ProfileViewDetailed
+  profile: AppBskyActorDefs.ProfileViewDetailed,
 ) => {
   await redisClient.set("profile", JSON.stringify(profile), "EX", 60 * 10);
 };
 
 export const setTitleToRkeyMapping = async (
   titleSlug: string,
-  rkey: string
+  rkey: string,
 ) => {
   await redisClient
     .multi()
@@ -60,7 +76,7 @@ export const setTitleToRkeyMapping = async (
 
 export const setRkeyToTitleMapping = async (
   rkey: string,
-  titleSlug: string
+  titleSlug: string,
 ) => {
   await redisClient.set(`rkey:${rkey}`, titleSlug);
 };
@@ -75,7 +91,7 @@ export const getTitleSlugFromRkey = async (rkey: string) => {
 
 export const removeTitleRkeyMappings = async (
   titleSlug: string,
-  rkey: string
+  rkey: string,
 ) => {
   await redisClient
     .multi()

@@ -1,0 +1,62 @@
+{
+  "lexicon": 1,
+  "id": "io.aparker.blog.images",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["images"],
+      "description": "A set of images embedded in a blog post.",
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": { "type": "ref", "ref": "#image" }
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "required": ["image", "alt"],
+      "properties": {
+        "image": {
+          "type": "blob",
+          "accept": ["image/*"],
+          "maxSize": 1000000
+        },
+        "alt": {
+          "type": "string",
+          "description": "Alt text description of the image, for accessibility."
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "required": ["images"],
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": { "type": "ref", "ref": "#viewImage" }
+        }
+      }
+    },
+    "viewImage": {
+      "type": "object",
+      "required": ["thumb", "fullsize", "alt"],
+      "properties": {
+        "thumb": {
+          "type": "string",
+          "format": "uri",
+          "description": "Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."
+        },
+        "fullsize": {
+          "type": "string",
+          "format": "uri",
+          "description": "Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."
+        },
+        "alt": {
+          "type": "string",
+          "description": "Alt text description of the image, for accessibility."
+        }
+      }
+    }
+  }
+}

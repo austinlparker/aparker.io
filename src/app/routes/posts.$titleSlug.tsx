@@ -146,7 +146,7 @@ export default function Posts() {
           <NavigationDialog previousPost={previousPost} nextPost={nextPost} />
         </div>
         <div className="md:col-span-2 flex flex-col overflow-hidden">
-          <div className="window flex-1 flex flex-col">
+          <div className="window flex-1 flex flex-col !m-0 !mb-1">
             <div className="title-bar">
               <button aria-label="Close" className="close"></button>
               <h1 className="title">{post.title}</h1>
@@ -187,7 +187,7 @@ export default function Posts() {
                 </span>
               </div>
             </div>
-            <div className="window-pane flex-1 overflow-y-auto">
+            <div className="window-pane flex-1">
               <Markdown components={markdownComponents} className="break-words">
                 {post.content}
               </Markdown>

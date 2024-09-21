@@ -1,0 +1,14 @@
+{
+  "lexicon": 1,
+  "id": "io.aparker.blog.defs",
+  "defs": {
+    "commentRef": {
+      "type": "object",
+      "description": "The parent comment of a post.",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "ref", "ref": "com.atproto.repo.strongRef" }
+      }
+    }
+  }
+}
